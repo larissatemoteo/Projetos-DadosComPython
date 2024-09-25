@@ -2,15 +2,15 @@
 import numpy as np
 
 #Função que calcula a média, variância, desvio padrão, máximo, mínimo e soma de uma matriz 3x3
-def calculate(data):
+def calculate(list):
     #O script recebe uma lista de 9 números e retorna um dicionário contendo as estatísticas.
     # Verifica se a lista contém exatamente 9 números
-    if len(data) != 9:
+    if len(list) != 9:
         raise ValueError("A lista deve conter nove números")
     
     # Converte a lista em uma matriz 3x3
-    matriz = np.array(data).reshape(3, 3)
-    
+    matriz = np.array(list).reshape(3, 3)
+
     # Função que calcula as estatísticas
     # Cada estatística é uma lista com o cálculo feito ao longo das linhas, colunas e de toda a matriz
     def estatisticas(op, arr):
@@ -21,16 +21,16 @@ def calculate(data):
           # # O método item() é usado para obter o valor escalar de um array numpy de um único elemento
 
     # Cria um dicionário contendo as operações
-    resultados = {
+    calculations = {
         'mean': estatisticas(np.mean, matriz),
         'variance': estatisticas(np.var, matriz),
         'standard deviation': estatisticas(np.std, matriz),
         'max': estatisticas(np.max, matriz),
         'min': estatisticas(np.min, matriz),
         'sum': estatisticas(np.sum, matriz)
-    }
-    
-    return resultados
+    }    
+
+    return calculations
 
 print(calculate([0, 1, 2, 3, 4, 5, 6, 7, 8]))
 # Saída esperada: 
