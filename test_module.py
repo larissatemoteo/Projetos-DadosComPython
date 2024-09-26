@@ -1,5 +1,5 @@
 import unittest
-import mean_var_std
+import projeto1.mean_var_std as mean_var_std
 
 
 # the test case
